@@ -38,7 +38,7 @@ int main(){
     printf("\n");
 
 
-    //Declaração dos vetores dos navios
+    //Declaração dos vetores dos navios e áreas de habilidade
     int navio1[] = {3, 3, 3};
     int navio2[] = {3, 3, 3, 3, 3};
     int navio3[] = {3, 3, 3};
@@ -46,6 +46,7 @@ int main(){
 
     int cone[] = {1, 1, 1, 1, 1, 1, 1, 1, 1};
     int cruz[] = {1, 1, 1, 1, 1};
+    int octaedro[] = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
 
 
     index1 = 2; //Index para fixar a linha do navio 1
@@ -73,36 +74,62 @@ int main(){
         }
     }
 
+    //Exibição área Cruz
+    int x = 0;
+    for (int i = 1; i < 4; i++){
+        for (int j = 0; j < 3; j++){
+               
+            if (i == 2){
+                tabuleiro [i][j] = cruz[x];
+                x++;
 
-
-    for (int x = 0; x < 6; x++){
-        for (int i = 1; i < 4; i++){
-            for (int j = 0; j < 3; j++){
-                
-                int distancia = i - 1;
-                int jInicio = 1 - distancia;
-                int jFinal = 1 + distancia;
-                
-                for (int j = jInicio; j <= jFinal; j++){
-                   tabuleiro [i][j] = cruz[x];
-                  
+                }else if (i == 1 || i == 3){
+                    if (j == 1){
+                    tabuleiro [i][j] = cruz[x];
+                    x++;
+                    
                 }
-            
             }
         }
     }
 
+    //Exibição do octaedro
+    for (int x = 0; x < 13; x++){
+        for (int i = 1; i < 6; i++){
+            for (int j = 5; j < 10; j++){
+
+                int colunaCentro = 7;
+                int linhaCentro = 3;
+                int largura;
+
+                if (i == 1 || i == 5){
+                    largura = 0;
+                }else if (i == 2 || i == 4){
+                    largura = 1;
+                }else{
+                    largura = 2;
+                }
+
+                if (j >= (colunaCentro - largura) && j <= (colunaCentro + largura)){
+                    tabuleiro [i][j] = octaedro[x];
+                }
+
+            
+            }
+            
+        }
+    }
 
     //Loop para posicionar os navios 1 e 2
-    /*for (int x = 0; x < 3; x++){
+    for (int x = 0; x < 3; x++){
         tabuleiro[index1][j + x] = navio1[x];
     }
 
     for (int x = 0; x < 5; x++){
         tabuleiro[i + x][index2] = navio2[x];
-    }*/
+    }
 
-    /*//Loops aninahdos para navios 3 e 4
+    //Loops aninahdos para navios 3 e 4
     for (int x = 0; x < 3; x++){
         for (int i = 6; i < 9; i++){
             for (int j = 0; j < 3; j++){
@@ -121,7 +148,7 @@ int main(){
                 }
             }
         }
-    }*/
+    }
 
         //Loop para exibir a numeração das linhas no tabuleiro
         for (int i = 0; i < 10; i++){
