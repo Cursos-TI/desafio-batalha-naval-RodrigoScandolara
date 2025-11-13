@@ -49,7 +49,7 @@ int main(){
     index2 = 8; //Index para fixar a coluna do navio 2
     int i = 3; //Variável "linha" para navio 2
     //int z = 0; //Posição do vetor do navio 2
-    index3 = 0;
+   
 
     //Loop para posicionar os navios 1 e 2
     for (int x = 0; x < 3; x++){
@@ -60,47 +60,43 @@ int main(){
         tabuleiro[i + x][index2] = navio2[x];
     }
 
-    i = 6;
-    j = 0;
+    //Loops aninahdos para navios 3 e 4
     for (int x = 0; x < 3; x++){
-        for (i = 6, j = 0; i < 9 && j < 3; i++, j++){
-        /*i = 6;
-        j = 0;*/
-        tabuleiro[i][j] = navio3[x];
-    }
-        /*for (int i = 6; i < 9; i++){
+        for (int i = 6; i < 9; i++){
             for (int j = 0; j < 3; j++){
-                
-            
-                
-
-                tabuleiro[i+x][j+x] = navio3[x];
-               
-
-                 
+                if ((i - j) == 6){
+                    tabuleiro[i][j] = navio3[x];
+                }
             }
-        }*/
+        }
     }
 
-    
-    //Loop para exibir a numeração das linhas no tabuleiro
-    for (int i = 0; i < 10; i++){
-        printf("%2d", i + 1); // "%2d" para que os números seja exibidos com duas casas, fazendo com que a linha 10 fique alinhada
+    for (int x = 0; x < 4; x++){
+        for (int i = 3; i >= 0; i--){
+            for (int j = 0; j < 4; j++){
+                if ((j + i) == 3){
+                    tabuleiro[i][j] = navio4[x];
+                }
+            }
+        }
+    }
+
+        //Loop para exibir a numeração das linhas no tabuleiro
+        for (int i = 0; i < 10; i++){
+            printf("%2d", i + 1); // "%2d" para que os números seja exibidos com duas casas, fazendo com que a linha 10 fique alinhada
 
         //Loop interno para a exibição do tabuleiro contendo somente água.
         for (int j = 0; j < 10; j++){
             printf(" %d", tabuleiro[i][j]);
 
              
+            }
+             printf("\n"); //Para que se pule linhas e não se imprima tudo em seguida
         }
-    
-        printf("\n"); //Para que se pule linhas e não se imprima tudo em seguida
-    }
 
-    printf("\n");
+        printf("\n");
 
 return 0;
 
-}
+    }
 
-//if ((i == 6) && (j == 1)) continue;
