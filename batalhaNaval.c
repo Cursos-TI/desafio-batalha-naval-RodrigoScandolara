@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int main(){
 
     int index1;
@@ -36,6 +37,7 @@ int main(){
 
     printf("\n");
 
+
     //Declaração dos vetores dos navios
     int navio1[] = {3, 3, 3};
     int navio2[] = {3, 3, 3, 3, 3};
@@ -43,6 +45,7 @@ int main(){
     int navio4[] = {3, 3, 3, 3};
 
     int cone[] = {1, 1, 1, 1, 1, 1, 1, 1, 1};
+    int cruz[] = {1, 1, 1, 1, 1};
 
 
     index1 = 2; //Index para fixar a linha do navio 1
@@ -51,27 +54,55 @@ int main(){
     index2 = 8; //Index para fixar a coluna do navio 2
     int i = 3; //Variável "linha" para navio 2
     
-   
-
-    for (int x = 0; x < 8; x++){
+    
+    //Exibição área Cone
+    for (int x = 0; x < 9; x++){
         for (int i = 6; i < 9; i++){
             for (int j = 0; j < 5; j++){
-                if ((i-j))
+                
+                int distancia = i - 6;
+                int jInicio = 2 - distancia;
+                int jFinal = 2 + distancia;
+                
+                for (int j = jInicio; j <= jFinal; j++){
+                   tabuleiro [i][j] = cone[x];
+                  
+                }
+            
+            }
+        }
+    }
+
+
+
+    for (int x = 0; x < 6; x++){
+        for (int i = 1; i < 4; i++){
+            for (int j = 0; j < 3; j++){
+                
+                int distancia = i - 1;
+                int jInicio = 1 - distancia;
+                int jFinal = 1 + distancia;
+                
+                for (int j = jInicio; j <= jFinal; j++){
+                   tabuleiro [i][j] = cruz[x];
+                  
+                }
+            
             }
         }
     }
 
 
     //Loop para posicionar os navios 1 e 2
-    for (int x = 0; x < 3; x++){
+    /*for (int x = 0; x < 3; x++){
         tabuleiro[index1][j + x] = navio1[x];
     }
 
     for (int x = 0; x < 5; x++){
         tabuleiro[i + x][index2] = navio2[x];
-    }
+    }*/
 
-    //Loops aninahdos para navios 3 e 4
+    /*//Loops aninahdos para navios 3 e 4
     for (int x = 0; x < 3; x++){
         for (int i = 6; i < 9; i++){
             for (int j = 0; j < 3; j++){
@@ -90,7 +121,7 @@ int main(){
                 }
             }
         }
-    }
+    }*/
 
         //Loop para exibir a numeração das linhas no tabuleiro
         for (int i = 0; i < 10; i++){
