@@ -4,7 +4,7 @@ int main(){
 
     int index1;
     int index2; 
-    int index3;
+    
     //Declaração do vetor de tipo char para o a coluna j do jogo
     char letras[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
 
@@ -42,14 +42,25 @@ int main(){
     int navio3[] = {3, 3, 3};
     int navio4[] = {3, 3, 3, 3};
 
+    int cone[] = {1, 1, 1, 1, 1, 1, 1, 1, 1};
+
 
     index1 = 2; //Index para fixar a linha do navio 1
     int j = 4; //Variável "coluna" para navio 1
-    //int x = 0; //Posição do vetor do navio 1
+    
     index2 = 8; //Index para fixar a coluna do navio 2
     int i = 3; //Variável "linha" para navio 2
-    //int z = 0; //Posição do vetor do navio 2
+    
    
+
+    for (int x = 0; x < 8; x++){
+        for (int i = 6; i < 9; i++){
+            for (int j = 0; j < 5; j++){
+                if ((i-j))
+            }
+        }
+    }
+
 
     //Loop para posicionar os navios 1 e 2
     for (int x = 0; x < 3; x++){
