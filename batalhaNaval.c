@@ -122,11 +122,23 @@ int main(){
 
     //Loop para posicionar os navios 1 e 2
     for (int x = 0; x < 3; x++){
+    
         tabuleiro[index1][j + x] = navio1[x];
+        if (tabuleiro[i][j] == 1){
+                        tabuleiro[i][j] = 5;
+                    }else{
+                    tabuleiro[i][j] = 3;
+                }
+        
     }
 
     for (int x = 0; x < 5; x++){
         tabuleiro[i + x][index2] = navio2[x];
+        if (tabuleiro[i][j] == 1){
+                        tabuleiro[i][j] = 5;
+                    }else{
+                    tabuleiro[i][j] = 3;
+                }
     }
 
     //Loops aninahdos para navios 3 e 4
@@ -134,7 +146,12 @@ int main(){
         for (int i = 6; i < 9; i++){
             for (int j = 0; j < 3; j++){
                 if ((i - j) == 6){
-                    tabuleiro[i][j] = navio3[x];
+                    if (tabuleiro[i][j] == 1){
+                        tabuleiro[i][j] = 5;
+                    }else{
+                    tabuleiro[i][j] = 3;
+                }
+                    
                 }
             }
         }
@@ -144,8 +161,12 @@ int main(){
         for (int i = 3; i >= 0; i--){
             for (int j = 0; j < 4; j++){
                 if ((j + i) == 3){
-                    tabuleiro[i][j] = navio4[x];
+                    if (tabuleiro[i][j] == 1){
+                        tabuleiro[i][j] = 5;
+                    }else{
+                    tabuleiro[i][j] = 3;
                 }
+            }
             }
         }
     }
