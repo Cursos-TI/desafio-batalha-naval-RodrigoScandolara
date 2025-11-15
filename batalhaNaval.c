@@ -114,7 +114,6 @@ int main(){
                     tabuleiro [i][j] = octaedro[x];
                 }
 
-            
             }
             
         }
@@ -124,21 +123,12 @@ int main(){
     for (int x = 0; x < 3; x++){
     
         tabuleiro[index1][j + x] = navio1[x];
-        if (tabuleiro[i][j] == 1){
-                        tabuleiro[i][j] = 5;
-                    }else{
-                    tabuleiro[i][j] = 3;
-                }
         
     }
 
     for (int x = 0; x < 5; x++){
         tabuleiro[i + x][index2] = navio2[x];
-        if (tabuleiro[i][j] == 1){
-                        tabuleiro[i][j] = 5;
-                    }else{
-                    tabuleiro[i][j] = 3;
-                }
+        
     }
 
     //Loops aninahdos para navios 3 e 4
@@ -146,11 +136,8 @@ int main(){
         for (int i = 6; i < 9; i++){
             for (int j = 0; j < 3; j++){
                 if ((i - j) == 6){
-                    if (tabuleiro[i][j] == 1){
-                        tabuleiro[i][j] = 5;
-                    }else{
-                    tabuleiro[i][j] = 3;
-                }
+                    tabuleiro[i][j] = navio3[x];
+                
                     
                 }
             }
@@ -161,12 +148,10 @@ int main(){
         for (int i = 3; i >= 0; i--){
             for (int j = 0; j < 4; j++){
                 if ((j + i) == 3){
-                    if (tabuleiro[i][j] == 1){
-                        tabuleiro[i][j] = 5;
-                    }else{
-                    tabuleiro[i][j] = 3;
+                    
+                    tabuleiro[i][j] = navio4[x];
+                
                 }
-            }
             }
         }
     }
@@ -175,14 +160,14 @@ int main(){
         for (int i = 0; i < 10; i++){
             printf("%2d", i + 1); // "%2d" para que os números seja exibidos com duas casas, fazendo com que a linha 10 fique alinhada
 
-        //Loop interno para a exibição do tabuleiro contendo somente água.
-        for (int j = 0; j < 10; j++){
-            printf(" %d", tabuleiro[i][j]);
+            //Loop interno para a exibição do tabuleiro contendo somente água.
+            for (int j = 0; j < 10; j++){
+                printf(" %d", tabuleiro[i][j]);
 
              
+                }
+                printf("\n"); //Para que se pule linhas e não se imprima tudo em seguida
             }
-             printf("\n"); //Para que se pule linhas e não se imprima tudo em seguida
-        }
 
         printf("\n");
 
